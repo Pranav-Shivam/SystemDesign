@@ -1,7 +1,33 @@
 # SOLID Principles Demonstrated with Code Examples
 
+"""
+This code demonstrates the SOLID principles, which are fundamental to object-oriented design and software engineering.
+Each principle aims to make systems easier to understand, maintain, and extend.
+
+Principles:
+1. Single Responsibility Principle (SRP): A class should only have one reason to change.
+2. Open-Closed Principle (OCP): Classes should be open for extension but closed for modification.
+3. Liskov Substitution Principle (LSP): Subtypes must be substitutable for their base types without altering correctness.
+4. Interface Segregation Principle (ISP): No client should be forced to depend on methods it does not use.
+5. Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules. Both should depend on abstractions.
+"""
+
 # 1. Single Responsibility Principle (SRP)
-#    A class should have only one reason to change, focusing on a single responsibility.
+"""
+Why:
+   - Reduces complexity by separating concerns.
+   - Makes classes easier to test and maintain.
+
+Use:
+   - Each class handles a single responsibility.
+
+Pros:
+   - Improves readability and maintainability.
+   - Reduces coupling between functionalities.
+
+Cons:
+   - May lead to more classes and increased initial development effort.
+"""
 
 # NOT following SRP: Combines user data management and authentication in one class.
 class UserWithAuth:
@@ -26,7 +52,20 @@ class Auth:
         return password == stored_password
 
 # 2. Open-Closed Principle (OCP)
-#    A class should be open for extension but closed for modification.
+"""
+Why:
+   - Prevents modification of existing code when adding new features.
+
+Use:
+   - Use abstractions and polymorphism to extend functionality.
+
+Pros:
+   - Reduces risk of introducing bugs in existing functionality.
+   - Encourages scalability.
+
+Cons:
+   - Requires careful planning and design.
+"""
 
 # NOT following OCP: Adding new shapes requires modifying the existing class.
 class ShapeWithSwitch:
@@ -57,7 +96,20 @@ class Rectangle(Shape):
         return self.width * self.height
 
 # 3. Liskov Substitution Principle (LSP)
-#    Subtypes must be substitutable for their base types without altering correctness.
+"""
+Why:
+   - Ensures that derived classes can be used interchangeably with their base class.
+
+Use:
+   - Design classes so that derived classes preserve the behavior of the base class.
+
+Pros:
+   - Enhances code reliability.
+   - Makes polymorphism more predictable.
+
+Cons:
+   - Requires disciplined inheritance design.
+"""
 
 # NOT following LSP: Penguin class breaks expectations of the Bird class.
 class Bird:
@@ -82,7 +134,20 @@ class Penguin(BirdLSP):
         print("Swimming")
 
 # 4. Interface Segregation Principle (ISP)
-#    No client should be forced to depend on methods it does not use.
+"""
+Why:
+   - Avoids forcing clients to implement methods they do not need.
+
+Use:
+   - Use smaller, more specific interfaces.
+
+Pros:
+   - Reduces unused code in implementations.
+   - Improves flexibility and clarity.
+
+Cons:
+   - Requires more interfaces, increasing initial effort.
+"""
 
 # NOT following ISP: Forces all clients to implement unused methods.
 class MultiFunctionDevice:
@@ -118,7 +183,20 @@ class Scanner(Scannable):
         print("Scanning")
 
 # 5. Dependency Inversion Principle (DIP)
-#    High-level modules should not depend on low-level modules. Both should depend on abstractions.
+"""
+Why:
+   - Decouples high-level modules from low-level modules.
+
+Use:
+   - Use abstractions to make dependencies flexible.
+
+Pros:
+   - Improves scalability and testability.
+   - Reduces coupling between modules.
+
+Cons:
+   - May require additional abstraction layers.
+"""
 
 # NOT following DIP: Manager is tightly coupled to Developer.
 class Developer:
